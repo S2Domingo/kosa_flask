@@ -30,9 +30,9 @@ jobs:
           pip install -r requirements.txt
 #     - name: Run test
 #       run: flask run
-      - name: test with PyTest
-        run: |
-          pytest
+#      - name: test with PyTest
+#        run: |
+#          pytest
 #        run: pytest --cov=app --cov-report=xml
 
       - name: Configure AWS credentials
