@@ -10,9 +10,9 @@ WORKDIR /root
 # flask
 WORKDIR /app
 
-COPY ./app/ /root/app/
-COPY ./config.py /root/config.py
-COPY ./requirements.txt /root/requirements.txt
+COPY ./app/ app/
+COPY ./config.py config.py
+COPY ./requirements.txt requirements.txt
 
 RUN pip install virtualenv
 RUN virtualenv venv
