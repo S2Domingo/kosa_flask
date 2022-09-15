@@ -1,20 +1,27 @@
-FROM python:3.8.10
-MAINTAINER Kogoon <gojs712@gmail.com>
+FROM python:3.8.4
 
 USER root
 WORKDIR /root
 
-RUN apt -y update
-RUN apt install -y python3-pip
+# bse
+# RUN apt-get -y update
+# RUN apt-get -y install python3-pip
 
-COPY ./app/ /root/app/
-COPY ./config.py /root/config.py
-COPY ./requirements.txt /root/requirements.txt
+# flask
+WORKDIR /app
 
-# RUN pip install virtualenv
-# RUN virtualenv venv
-# RUN . venv/bin/activate
+COPY static/ static/
+COPY templates/ templates/
+COPY app.py app.py
+
+RUN pip install virtualenv
+RUN virtualenv venv
+RUN . venv/bin/activate
+COPY requirements.txt requirements.txt
 RUN pip install -r requirements.txt
 
+
+
 ENV FLASK_APP=app
+
 CMD flask run --host 0.0.0.0 -p 80
