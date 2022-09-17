@@ -31,23 +31,6 @@ class UserUpdateForm(FlaskForm):
     ])
     new_password_confirm = PasswordField('비밀번호 확인', validators=[DataRequired()])
 
-    # id = db.Column(db.Integer, primary_key=True, autoincrement=True)
-    # product_name = db.Column(db.String(30))
-    # price = db.Column(db.Integer)
-    # image_url = db.Column(db.String(255))
-    # create_date = db.Column(db.DateTime(), nullable=False)
-    # product_detail = db.Column(db.Text)
-    # alergy_dai = db.Column(db.Boolean, nullable=True)
-    # alergy_cru = db.Column(db.Boolean, nullable=True)
-    # alergy_nut = db.Column(db.Boolean, nullable=True)
-    # alergy_pch = db.Column(db.Boolean, nullable=True)
-
-# FileUpload https://flask-wtf.readthedocs.io/en/0.15.x/form/
-
-# class UploadForm(FlaskForm):
-#     photo = FileField(validators=[FileAllowed(photos, 'Image only!'), FileRequired('File was empty!')])
-#     submit = SubmitField('Upload')
-
 
 # Product Create  - no implement
 class ProductCreateForm(FlaskForm):
@@ -56,8 +39,4 @@ class ProductCreateForm(FlaskForm):
     image = FileField('상품이미지', validators=[FileRequired(), FileAllowed(ALLOWED_EXTENSIONS, '이미지만 가능합니다.')])
     submit = SubmitField('상품 등록')
 
-
-# Product Update (상품정보)  - no implement
-class ProductUpdateForm(FlaskForm):
-    pass
 
